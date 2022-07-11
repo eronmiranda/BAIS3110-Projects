@@ -1,0 +1,40 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<form method="post">
+    <h1>Name</h1>
+    <input size="80" name="UserName">
+    <br />
+    @if (Model.NameResponse != null)
+    {
+        @Model.NameResponse
+        <br />
+        @Html.Raw(Model.NameResponse)
+    }
+    <br /><br />
+    <h1>Message Board</h1>
+    <textarea cols="40" rows="4" asp-for="MessageText"></textarea>
+    <br />
+    <br />
+    @if (Model.MessageResponse != null)
+    {
+        @Html.Raw(Model.MessageResponse)
+    }
+    <hr />
+    <br />
+    <h1>Filename</h1>
+    <input size="80" name="Filename">
+    @if (Model.FilenameResponse != null)
+    {
+        <br />
+        @Model.FilenameResponse
+    }
+    <br />
+    <br />
+    <hr />
+
+    <input type="submit">
+</form>
